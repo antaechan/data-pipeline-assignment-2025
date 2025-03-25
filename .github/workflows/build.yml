@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f docker/Dockerfile.prod -t cell-database .
+          docker build -f docker/Dockerfile.prod -t cell_database .
 
       - name: Tag Docker image
         run: |
