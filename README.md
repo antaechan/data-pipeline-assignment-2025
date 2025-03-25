@@ -64,3 +64,20 @@
 - **구현 방식 및 언어**  
   구현 언어 : `Python`  
   구현 방식 : `Airflow`
+
+## README.md
+
+- **How to Start**
+  - Install Docker Desktop Engine
+  - `bash scripts/start-docker.sh`
+  - Attach to Running Containers: Click `cell_database` in VSCode
+  - `python main.py`
+
+- **How to Test**  
+  - `bash scripts/start-docker.sh`
+  - Attach to Running Containers: Click `cell_database` in VSCode
+  - `bash scripts/test.sh`
+
+- **CI/CD pipeline**  
+  - Main branch 커밋하면 Actions ci-cd.yml 실행
+  - ci-cd.yml 성공적으로 완료 시 Actions build.yml 실행

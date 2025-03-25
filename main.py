@@ -58,8 +58,6 @@ def setup_database():
     conn.close()
     print("Database setup complete.")
 
-
-# 5. 데이터 삽입
 def insert_data():
     conn = sqlite3.connect(DB_PATH)
 
@@ -76,8 +74,6 @@ def insert_data():
     conn.close()
     print("Data insertion complete.")
 
-
-# 실행 순서
 if __name__ == "__main__":
     download_data()
     setup_database()

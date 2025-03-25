@@ -1,7 +1,6 @@
 import sqlite3
 
 def get_db_connection(db_path):
-    """DB 연결을 반환하는 함수"""
     conn = sqlite3.connect(db_path)
     return conn
 
@@ -25,7 +24,6 @@ def is_2nf(table_name, table_data, primary_key, functional_dependencies):
 
 
 def get_table_data(conn, table_name):
-    """DB에서 테이블의 데이터를 가져오는 함수"""
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM {table_name}")
     rows = cursor.fetchall()
