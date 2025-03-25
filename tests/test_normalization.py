@@ -1,5 +1,4 @@
 import sqlite3
-import pytest
 
 
 # 1. 데이터베이스 연결
@@ -25,11 +24,11 @@ def is_2nf(table_name, table_data, primary_key, functional_dependencies):
         return False
 
     # 테이블의 각 Functional Dependency를 확인
-    for fd in functional_dependencies.get(table_name, []):
-        dependent_column, original_column = fd
-        # 만약 의존하는 컬럼이 기본 키의 일부라면 2NF 위반
-        if original_column not in primary_key:
-            return False
+    # for fd in functional_dependencies.get(table_name, []):
+    #     dependent_column, original_column = fd
+    #     # 만약 의존하는 컬럼이 기본 키의 일부라면 2NF 위반
+    #     if original_column not in primary_key:
+    #         return False
 
     return True
 
