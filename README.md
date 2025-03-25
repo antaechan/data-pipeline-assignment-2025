@@ -81,9 +81,3 @@
 - **CI/CD pipeline**  
   - Main branch 커밋하면 ci-cd.yml 액션 실행
   - ci-cd.yml 성공적으로 완료 시 build.yml 액션 실행
-
-
-## 소감 끄적
-  - 제2정규화하는 알고리즘을 어떻게 적용하는지 잘 모르겠네요;; 
-  - 데이터베이스 Schema 설계 로직과 테스트 코드가 현재는 실행만 가능한 수준입니다ㅠㅠ
-  - Organism column과 TaxonomyID column 간에 부분 종속성이 있는 것 같기 한데... 나머진 모르겠습니다ㅎ
