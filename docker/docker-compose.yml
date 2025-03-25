@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.prod
+    container_name: cell_database
+    volumes:
+      - ../:/app
+    stdin_open: true  # 컨테이너의 표준 입력을 열어 둠
+    tty: true         # 가상 터미널을 활성화하여 종료되지 않게 함
