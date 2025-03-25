@@ -37,19 +37,20 @@ def setup_database():
         Name TEXT,
         Tissue TEXT,
         Organism TEXT,
+        TaxonomyID INTEGER,
         Synonyms TEXT
     );
 
     CREATE TABLE taxonomy (
-        Organism TEXT PRIMARY KEY,
-        TaxonomyID INTEGER
+        TaxonomyID INT,
+        Name TEXT,
+        Organism TEXT,
+        PRIMARY KEY (TaxonomyID, Name)
     );
 
     CREATE TABLE synonyms (
         RowID INTEGER PRIMARY KEY AUTOINCREMENT,
-        CellID INTEGER,
-        Synonyms TEXT,
-        FOREIGN KEY (CellID) REFERENCES cells(CellID) ON DELETE CASCADE
+        Synonyms TEXT
     );
     """
     )
@@ -62,9 +63,9 @@ def insert_data():
     conn = sqlite3.connect(DB_PATH)
 
     df = pd.read_csv(os.path.join(DATA_DIR, EXTRACTED_FILE))
-    df_cells = df[["CellID", "Name", "Tissue", "Organism", "Synonyms"]].drop_duplicates()
-    df_taxonomy = df[["Organism", "TaxonomyID"]].drop_duplicates()
-    df_synonyms = df[["CellID", "Synonyms"]].drop_duplicates()
+    df_cells = df[["CellID", "Name", "Tissue", "Organism", "TaxonomyID", "Synonyms"]].drop_duplicates()
+    df_taxonomy = df[["TaxonomyID", "Name", "Organism"]].drop_duplicates()
+    df_synonyms = df[["Synonyms"]].drop_duplicates()
 
     df_cells.to_sql("cells", conn, if_exists="append", index=False)
     df_taxonomy.to_sql("taxonomy", conn, if_exists="append", index=False)
